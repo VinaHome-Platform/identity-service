@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    image: tuanthanh02/identity-service:latest
+    ports:
+      - "4001:4001"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
