@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: tuanthanh02/identity-service:latest
+    image: tuanthanh03/identity-service:latest
     ports:
       - "4001:4001"
     environment:

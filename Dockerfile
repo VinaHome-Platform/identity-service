@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (cần dev deps để build)
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -14,6 +14,11 @@ COPY . .
 # Build app
 RUN npm run build
 
+# Remove dev dependencies
+RUN npm prune --production
+
+# Expose port
+EXPOSE 4001
 
 # Start app
 CMD ["npm", "run", "start:prod"]
